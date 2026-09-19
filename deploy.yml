@@ -1,0 +1,57 @@
+name: Deploy northpulsar.com
+
+# Builds site/ from src/ and publishes it to Namecheap over FTPS whenever
+# main changes.
+#
+# Safety: dangerous-clean-slate is false, so this only adds and updates
+# files and never deletes anything already on the server. That matters here
+# for one specific reason: /.well-known/pki-validation holds the SSL
+# validation file, and wiping it would break certificate renewal.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Server directory to publish into"
+        required: true
+        default: "/"
+
+concurrency:
+  group: deploy-northpulsar
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build the pages
+        run: python3 src/build.py
+
+      - name: Show what will be published
+        run: find site -type f | sort
+
+      - name: Publish over FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          server-dir: ${{ github.event.inputs.target || '/' }}
+          local-dir: ./site/
+          dangerous-clean-slate: false
+          log-level: standard
