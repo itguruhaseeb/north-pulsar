@@ -103,9 +103,10 @@ page("index.html",
 <p class="meta">The one exception, and only when you ask for it: if you paste a link to a job posting, the app fetches that page once so it can read the posting. Paste the text instead and no request is made at all. The full detail is in the <a href="/app/privacy">privacy policy</a>.</p>
 
 <h2>Who builds it</h2>
-<p>NorthPulsar is built by <strong>Haseeb Mohammed Afsar</strong>, Head of Engineering at Yahoo, where he leads the content platform organization behind Yahoo Finance, Sports, News and Mail.</p>
-<p>At Amazon he served as a Bar Raiser, the interviewer brought into hiring loops specifically to judge whether a candidate is ready, and personally made the final hiring call on more than 200 engineering hires in that role. He has mentored more than 500 people into new roles directly, and over 700 more through mentoring programs including ADP and Breakthrough Tech.</p>
-<p>The app is the loop he ran from the other side of the table, put in your pocket.</p>
+<p>NorthPulsar is built by a former <strong>Amazon Bar Raiser</strong>, the interviewer brought into hiring loops specifically to judge whether a candidate is ready, with the final say on more than 200 engineering hires in that role.</p>
+<p>Outside the loop, that work has meant mentoring more than 500 people into new roles directly, and over 700 more through programs including ADP and Breakthrough Tech. The day job is running engineering for a content platform used by millions.</p>
+<p>The app is that loop, run from the other side of the table, put in your pocket.</p>
+<p>The builder stays unnamed on purpose. Everything here goes through <a href="mailto:info@northpulsar.com">info@northpulsar.com</a>.</p>
 
 <h2>Status</h2>
 <p>NorthPulsar for iPhone is in private beta on TestFlight. It is not yet on the App Store.</p>
