@@ -1,5 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100" class="mark" aria-hidden="true">
-  <circle r="40" fill="none" stroke="#C9C1FF" stroke-opacity=".28" stroke-width="2.5"/>
-  <circle r="27" fill="none" stroke="#C9C1FF" stroke-opacity=".55" stroke-width="2.5"/>
-  <path d="M0-34Q4.6-4.6 34 0Q4.6 4.6 0 34Q-4.6 4.6-34 0Q-4.6-4.6 0-34Z" fill="#FAF8FF"/>
+<svg class="mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="NorthPulsar">
+<g fill="none" stroke="{A}" stroke-width="2.1" stroke-linecap="round">
+  <path d="M55.03,16.37 A34.0,34.0 0 0 1 83.63,44.97"/>
+  <path d="M83.63,55.03 A34.0,34.0 0 0 1 55.03,83.63"/>
+  <path d="M44.97,83.63 A34.0,34.0 0 0 1 16.37,55.03"/>
+  <path d="M16.37,44.97 A34.0,34.0 0 0 1 44.97,16.37"/>
+</g>
+  <polygon points="70.15,29.85 55.13,37.62 50.00,50.00" fill="{B}"/>
+  <polygon points="70.15,29.85 50.00,50.00 62.38,44.87" fill="{A}"/>
+  <polygon points="70.15,70.15 62.38,55.13 50.00,50.00" fill="{B}"/>
+  <polygon points="70.15,70.15 50.00,50.00 55.13,62.38" fill="{A}"/>
+  <polygon points="29.85,70.15 44.87,62.38 50.00,50.00" fill="{B}"/>
+  <polygon points="29.85,70.15 50.00,50.00 37.62,55.13" fill="{A}"/>
+  <polygon points="29.85,29.85 37.62,44.87 50.00,50.00" fill="{B}"/>
+  <polygon points="29.85,29.85 50.00,50.00 44.87,37.62" fill="{A}"/>
+  <polygon points="50.00,8.50 44.87,37.62 50.00,50.00" fill="{B}"/>
+  <polygon points="50.00,8.50 50.00,50.00 55.13,37.62" fill="{A}"/>
+  <polygon points="91.50,50.00 62.38,44.87 50.00,50.00" fill="{B}"/>
+  <polygon points="91.50,50.00 50.00,50.00 62.38,55.13" fill="{A}"/>
+  <polygon points="50.00,91.50 55.13,62.38 50.00,50.00" fill="{B}"/>
+  <polygon points="50.00,91.50 50.00,50.00 44.87,62.38" fill="{A}"/>
+  <polygon points="8.50,50.00 37.62,55.13 50.00,50.00" fill="{B}"/>
+  <polygon points="8.50,50.00 50.00,50.00 37.62,44.87" fill="{A}"/>
 </svg>

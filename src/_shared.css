@@ -1,13 +1,13 @@
 *,*::before,*::after{box-sizing:border-box}
 :root{
-  --ink:#12143C; --ink-2:#2A2C55; --body:#3B3D63; --muted:#6B6D8C;
-  --accent:#5245A8; --accent-soft:#EFECFB; --ring:#C9C1FF;
-  --bg:#FFFFFF; --card:#F7F6FC; --line:#E4E2F0;
+  --ink:#0C1B2A; --ink-2:#17293C; --body:#33485C; --muted:#64798C;
+  --accent:#1A6AB0; --accent-soft:#E8F1FA; --ring:#A9CDF0;
+  --bg:#FFFFFF; --card:#F4F8FC; --line:#DDE7F0;
   --max:44rem;
 }
 @media (prefers-color-scheme:dark){
-  :root{--ink:#F3F1FF;--ink-2:#DAD6F5;--body:#BDB9D8;--muted:#8E8AAC;
-  --accent:#A89BFC;--accent-soft:#1E1F44;--bg:#0C0D24;--card:#151634;--line:#26284F}
+  :root{--ink:#EAF3FB;--ink-2:#CFE2F2;--body:#AFC4D8;--muted:#7F94A8;
+  --accent:#79B4E8;--accent-soft:#102336;--bg:#08141F;--card:#0F2131;--line:#1E3A50}
 }
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--body);
@@ -24,10 +24,10 @@ a:hover{text-decoration-thickness:2px}
 strong{color:var(--ink-2);font-weight:620}
 ul{margin:0 0 1rem;padding-left:1.15rem}
 li{margin:0 0 .5rem}
-.hero{background:linear-gradient(165deg,#12143C 0%,#3D328E 100%);color:#EDEBFF;padding:3.5rem 0 3rem}
+.hero{background:linear-gradient(165deg,#0B2038 0%,#1E5FA6 100%);color:#E4F0FB;padding:3.5rem 0 3rem}
 .hero .wrap{display:flex;flex-direction:column;align-items:flex-start;gap:1.1rem}
-.hero h1{color:#FAF8FF}
-.hero p{color:#C9C4EE;margin:0;font-size:1.0625rem;max-width:32rem}
+.hero h1{color:#FFFFFF}
+.hero p{color:#C3DAF0;margin:0;font-size:1.0625rem;max-width:32rem}
 .mark{width:56px;height:56px;flex:none}
 .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .4rem}
 .hero .eyebrow{color:var(--ring)}
@@ -40,7 +40,7 @@ main{padding:2.5rem 0 1rem}
 .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;
   padding:.7rem 1.15rem;border-radius:10px;font-size:1rem}
 .btn:hover{opacity:.9;text-decoration:none}
-@media (prefers-color-scheme:dark){.btn{color:#0C0D24}}
+@media (prefers-color-scheme:dark){.btn{color:#08141F}}
 hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 footer{border-top:1px solid var(--line);margin-top:3rem;padding:1.75rem 0 3rem;font-size:.9375rem;color:var(--muted)}
 footer a{color:var(--muted)}

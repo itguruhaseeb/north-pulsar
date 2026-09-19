@@ -13,7 +13,12 @@ here = Path(__file__).parent
 root = here.parent / "site"
 root.mkdir(parents=True, exist_ok=True)
 css = (here / "_shared.css").read_text()
-mark = (here / "_mark.svg").read_text().strip()
+mark_tpl = (here / "_mark.svg").read_text().strip()
+
+# The mark ships in two keyings from one source: true brand blue on light
+# surfaces, and a reversed light version for the dark hero band.
+BRAND = mark_tpl.format(A="#3E88D1", B="#4E95D6")
+mark = mark_tpl.format(A="#FFFFFF", B="#BDD9F2")
 
 HEAD = """<!doctype html>
 <html lang="en">
@@ -233,7 +238,7 @@ page("404.html", "Page not found, NorthPulsar", "That page does not exist.", "/4
 <main class="wrap"><p><a href="/">Go to northpulsar.com</a></p></main>
 """)
 
-(root / "favicon.svg").write_text(mark.replace(' class="mark"', '').replace('<svg ', '<svg width="64" height="64" '))
+(root / "favicon.svg").write_text(BRAND.replace(' class="mark"', '').replace('<svg ', '<svg width="64" height="64" '))
 (root / "robots.txt").write_text("User-agent: *\nAllow: /\n\nSitemap: https://northpulsar.com/sitemap.xml\n")
 (root / "sitemap.xml").write_text(
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
