@@ -67,7 +67,7 @@ MARK = mark
 
 page("index.html",
      "NorthPulsar",
-     "Behavioral interview preparation, built by an ex Amazon Bar Raiser. The NorthPulsar iPhone app keeps your stories, your loop and your offer on your own phone.",
+     "Behavioral interview preparation, built by an ex Amazon Bar Raiser. The NorthPulsar iPhone app scores your stories, drills them under pressure and tracks every loop to the offer, all on your own phone.",
      "/",
      f"""<header class="hero">
 <div class="wrap">
@@ -78,14 +78,14 @@ page("index.html",
 </header>
 <main class="wrap">
 
-<p class="lede">Most people walk into a behavioral loop with good stories and no way to find them under pressure. NorthPulsar fixes the retrieval problem, not the writing problem.</p>
+<p class="lede">Most people walk into a behavioral loop with good stories and no way to find them under pressure. NorthPulsar turns your resume into a scored story bank, shows you which competencies you cannot evidence yet, and drills retrieval until the right story arrives before you need it.</p>
 
 <h2>The iPhone app</h2>
 <p>NorthPulsar for iPhone turns your own history into a story bank you can actually reach for in the room, then walks the loop with you from the recruiter screen to the offer call.</p>
 
 <div class="card">
 <h3>Build the bank</h3>
-<p>Import your resume and NorthPulsar drafts each achievement into a STAR story in your words, scores how strong it is, and shows which competencies you have no evidence for yet. You can type or speak every field.</p>
+<p>Import your resume and NorthPulsar drafts each achievement into a STAR story, scores how strong it is, and shows which competencies you have no evidence for yet. Drafting runs on the phone with Apple Intelligence, and it moves your own words into place rather than inventing an achievement you did not have. You can type or speak every field.</p>
 </div>
 
 <div class="card">
