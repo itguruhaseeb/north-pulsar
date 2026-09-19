@@ -1,0 +1,6 @@
+# Built output. src/build.py regenerates it, and CI builds it on every
+# deploy, so committing it would only create diffs nobody reads.
+site/
+__pycache__/
+*.pyc
+.DS_Store
