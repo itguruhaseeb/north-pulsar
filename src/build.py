@@ -43,7 +43,8 @@ FOOT = """<footer>
 <a href="/app/privacy">Privacy policy</a>
 <a href="mailto:info@northpulsar.com">info@northpulsar.com</a>
 </nav>
-<p>NorthPulsar is operated by Haseeb Mohammed Afsar, Schaumburg, Illinois, United States.<br>
+<p>NorthPulsar is an independent iPhone app. Everything goes through
+<a href="mailto:info@northpulsar.com">info@northpulsar.com</a>.<br>
 Copyright 2026 NorthPulsar. All rights reserved.</p>
 </div>
 </footer>
@@ -129,7 +130,7 @@ page("app/index.html",
 
 <h2>Get in touch</h2>
 <p>Email <a href="mailto:info@northpulsar.com">info@northpulsar.com</a> and a person reads it. Inside the app, <strong>Settings, Support</strong> opens the same address with your build number, iOS version and device model already filled in, which makes a problem much faster to place.</p>
-<p class="meta">App: NorthPulsar for iPhone. Publisher: Haseeb Mohammed Afsar, Schaumburg, Illinois, United States.</p>
+<p class="meta">App: NorthPulsar for iPhone, published by NorthPulsar. Support is read and answered by the person who builds the app, at info@northpulsar.com.</p>
 
 <h2>Common questions</h2>
 
