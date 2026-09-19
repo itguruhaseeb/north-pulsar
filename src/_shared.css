@@ -26,6 +26,33 @@ li{margin:0 0 .5rem}
 .hero h1{color:#FFFFFF}
 .hero p{color:#C3DAF0;margin:0;font-size:1.0625rem;max-width:32rem}
 .mark{width:56px;height:56px;flex:none}
+
+/* A screenshot in a phone bezel. The simulator shot already contains the
+   status bar and the island, so the frame draws only the body around it. */
+.shot{flex:none;width:min(248px,64vw);aspect-ratio:1320/2868;padding:2.4%;
+  background:#0A1826;border-radius:12%/5.5%;
+  box-shadow:0 0 0 1px rgba(10,24,38,.25),0 20px 44px -14px rgba(11,32,56,.5)}
+.shot img{display:block;width:100%;height:100%;object-fit:cover;border-radius:10%/4.6%}
+.hero .shot{align-self:center;width:min(212px,56vw);margin-top:.5rem;
+  box-shadow:0 0 0 1px rgba(255,255,255,.14),0 26px 50px -16px rgba(0,0,0,.55)}
+@media (min-width:860px){
+  .hero.split .wrap{flex-direction:row;align-items:center;gap:3rem}
+  .hero.split .copy{flex:1;min-width:0;display:flex;flex-direction:column;
+    align-items:flex-start;gap:1.1rem}
+  .hero.split .shot{width:262px;margin-top:0}
+}
+
+/* One step of the walkthrough: the screen beside what it does. */
+.step{display:flex;flex-direction:column;align-items:center;gap:1.4rem;margin:0 0 3.25rem}
+.step-body{min-width:0}
+.step-body h3{margin-top:0}
+.step-body p:last-child{margin-bottom:0}
+@media (min-width:720px){
+  .step{flex-direction:row;align-items:center;gap:2.25rem}
+  .step-body{flex:1}
+  .step.flip{flex-direction:row-reverse}
+  .step .shot{width:216px}
+}
 .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .4rem}
 .hero .eyebrow{color:var(--ring)}
 main{padding:2.5rem 0 1rem}

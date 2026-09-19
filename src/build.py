@@ -7,6 +7,7 @@ Every page ships self contained: one file, no external CSS, no fonts, no
 scripts. That way it renders identically on any static host and can be
 previewed straight from disk.
 """
+import base64
 from pathlib import Path
 
 here = Path(__file__).parent
@@ -65,15 +66,67 @@ def page(path, title, desc, canon, body):
 
 MARK = mark
 
+# Screenshots live in src/shots as base64 so they can be committed as text,
+# and are written out as real files at build time. They are simulator grabs
+# from the UI tests, so they show the shipping build rather than a mockup.
+shots = here / "shots"
+images = root / "images"
+have = set()
+if shots.is_dir():
+    images.mkdir(parents=True, exist_ok=True)
+    for source in sorted(shots.glob("*.b64")):
+        (images / f"{source.stem}.webp").write_bytes(
+            base64.b64decode(source.read_text())
+        )
+        have.add(source.stem)
+print(f"images/  {len(have)} screenshots" + ("" if have else ", the pages fall back to text"))
+
+
+def shot(name, alt):
+    """One screenshot in a phone bezel, or nothing if that shot is missing.
+
+    Missing rather than broken on purpose. A screenshot arrives only after a
+    build run has produced one, and a page with an empty image frame on it
+    looks worse than a page that never promised a picture. Every layout that
+    uses this reads fine with the frame absent.
+    """
+    if name not in have:
+        return ""
+    return (f'<div class="shot"><img src="/images/{name}.webp" alt="{alt}"'
+            f' width="440" height="956" loading="lazy" decoding="async"></div>')
+
+
+# The hero only splits into two columns when there is something to put in the
+# second one.
+HERO = "hero split" if "home" in have else "hero"
+
+
+def step(name, alt, heading, body, flip=False):
+    """One beat of the walkthrough: the screen beside what it does.
+
+    With no screenshot to show it falls all the way back to the plain card
+    the page used before there were any, rather than leaving a heading and a
+    paragraph floating with nothing to separate them from the next one.
+    """
+    picture = shot(name, alt)
+    if not picture:
+        return f'<div class="card">\n<h3>{heading}</h3>\n<p>{body}</p>\n</div>'
+    side = "step flip" if flip else "step"
+    return (f'<div class="{side}">\n{picture}\n<div class="step-body">\n'
+            f'<h3>{heading}</h3>\n<p>{body}</p>\n</div>\n</div>')
+
 page("index.html",
      "NorthPulsar",
      "Behavioral interview preparation, built by an ex Amazon Bar Raiser. The NorthPulsar iPhone app scores your stories, drills them under pressure and tracks every loop to the offer, all on your own phone.",
      "/",
-     f"""<header class="hero">
+     f"""<header class="{HERO}">
 <div class="wrap">
+<div class="copy">
 {MARK}
 <h1>NorthPulsar</h1>
 <p>Find your north on the interview loop. Behavioral preparation that works from your own experience, not from a script somebody else wrote.</p>
+</div>
+{shot("home", "The NorthPulsar home screen, showing readiness for the active job and which competencies are covered")}
 </div>
 </header>
 <main class="wrap">
@@ -83,25 +136,13 @@ page("index.html",
 <h2>The iPhone app</h2>
 <p>NorthPulsar for iPhone turns your own history into a story bank you can actually reach for in the room, then walks the loop with you from the recruiter screen to the offer call.</p>
 
-<div class="card">
-<h3>Build the bank</h3>
-<p>Import your resume and NorthPulsar drafts each achievement into a STAR story, scores how strong it is, and shows which competencies you have no evidence for yet. Drafting runs on the phone with Apple Intelligence, and it moves your own words into place rather than inventing an achievement you did not have. You can type or speak every field.</p>
-</div>
+{step("stories", "The story bank, each story scored and tagged with the competency it carries", "Build the bank", "Import your resume and NorthPulsar drafts each achievement into a STAR story, scores how strong it is, and shows which competencies you have no evidence for yet. Drafting runs on the phone with Apple Intelligence, and it moves your own words into place rather than inventing an achievement you did not have. You can type or speak every field.")}
 
-<div class="card">
-<h3>Practice under pressure</h3>
-<p>Mocks ask one question at a time. Type or record an answer, and the app times how long you took to find the story, then tells you which signals held up and which did not. Every mock is kept, so the next one is measured against the last.</p>
-</div>
+{step("mock", "A mock question with the clock running on how long it takes to find a story", "Practice under pressure", "Mocks ask one question at a time. Type or record an answer, and the app times how long you took to find the story, then tells you which signals held up and which did not. Every mock is kept, so the next one is measured against the last.", flip=True)}
 
-<div class="card">
-<h3>Run the loop</h3>
-<p>Add every job you are going for and mark one active. Each job carries its posting, its pay band and its rounds. Log the status of each round with your notes or a call transcript, and the app reads the trend toward an offer or a rejection.</p>
-</div>
+{step("jobs", "The Jobs tab, with every role being pursued and one marked active", "Run the loop", "Add every job you are going for and mark one active. Each job carries its posting, its pay band and its rounds. Log the status of each round with your notes or a call transcript, and the app reads the trend toward an offer or a rejection.")}
 
-<div class="card">
-<h3>Land it</h3>
-<p>A rejection becomes a debrief of what held up and what did not, so the next loop starts further along. An offer becomes a plan: where the number sits in the range, what to lead with, what to negotiate and in what order, and what to say on the call.</p>
-</div>
+{step("brief", "A single job opened to its rounds, each with its status and the trend read off them", "Land it", "A rejection becomes a debrief of what held up and what did not, so the next loop starts further along. An offer becomes a plan: where the number sits in the range, what to lead with, what to negotiate and in what order, and what to say on the call.", flip=True)}
 
 <h2>Nothing leaves your phone</h2>
 <p>There is no account and no sign in. Your stories, your resume, your practice history and your offer numbers are stored in the app's own container on your device and are never sent to a server. Drafting runs on the phone using Apple Intelligence where the device supports it.</p>
